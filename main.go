@@ -15,9 +15,9 @@ import (
 )
 
 func main() {
-	db, err := gorm.Open(sqlite.Open("tasks.db"), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open("./todo.db"), &gorm.Config{})
 	if err != nil {
-		log.Fatal("Failed to connect to database:", err)
+		log.Fatal("Failed to connect database:", err)
 	}
 
 	if err := db.AutoMigrate(&models.Task{}); err != nil {
